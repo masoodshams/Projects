@@ -52,4 +52,15 @@ sns.scatterplot(x='X1', y='X2', data=df, hue='KmeansLabels')
 
 plt.show()
 
-#
+
+# K-Medoids
+
+kmedo = KMedoids(n_clusters = 2, random_state = 12)
+
+kmedo.fit(X)
+
+df['KMedoidLabels'] = kmedo.predict(X)
+
+sns.scatterplot(x = 'X1', y = 'X2', data = df, hue = 'KMedoidLabels')
+
+plt.show()
