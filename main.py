@@ -50,7 +50,7 @@ df['KmeansLabels'] = kmeans.predict(X)
 
 sns.scatterplot(x='X1', y='X2', data=df, hue='KmeansLabels')
 
-plt.show()
+# plt.show()
 
 
 # K-Medoids
@@ -62,5 +62,33 @@ kmedo.fit(X)
 df['KMedoidLabels'] = kmedo.predict(X)
 
 sns.scatterplot(x = 'X1', y = 'X2', data = df, hue = 'KMedoidLabels')
+
+# plt.show()
+
+# Gaussian Mixture
+gmm = GaussianMixture(n_components = 2, random_state = 12)
+
+gmm.fit(X)
+
+df['GmmLabels'] = gmm.predict(X)
+
+sns.scatterplot(x = 'X1', y = 'X2', data = df, hue = 'GmmLabels')
+
+# plt.show()
+
+# Agglomerative Clustering
+aglc = AgglomerativeClustering(n_clusters = 2, linkage = 'single')
+
+df['AggLabels'] = aglc.fit_predict(X)
+
+sns.scatterplot(x = 'X1', y = 'X2', data = df, hue = 'AggLabels')
+
+# plt.show()
+
+dbs = DBSCAN(eps = 0.3)
+
+df['DBSLabels'] = dbs.fit_predict(X)
+
+sns.scatterplot(x = 'X1', y = 'X2', data = df, hue = 'DBSLabels')
 
 plt.show()
