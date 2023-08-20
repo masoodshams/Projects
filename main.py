@@ -32,7 +32,7 @@ df.columns = ['X1', 'X2']
 
 df['Y'] = y
 df
-
+print(df)
 # Scatter plot of original lables
 # نمودار پراکندگی برچسب های اصلی
 sns.scatterplot(x='X1', y='X2', data=df, hue='Y')
@@ -50,7 +50,7 @@ df['KmeansLabels'] = kmeans.predict(X)
 
 sns.scatterplot(x='X1', y='X2', data=df, hue='KmeansLabels')
 
-# plt.show()
+plt.show()
 
 
 # K-Medoids
@@ -63,7 +63,7 @@ df['KMedoidLabels'] = kmedo.predict(X)
 
 sns.scatterplot(x = 'X1', y = 'X2', data = df, hue = 'KMedoidLabels')
 
-# plt.show()
+plt.show()
 
 # Gaussian Mixture
 gmm = GaussianMixture(n_components = 2, random_state = 12)
@@ -74,7 +74,7 @@ df['GmmLabels'] = gmm.predict(X)
 
 sns.scatterplot(x = 'X1', y = 'X2', data = df, hue = 'GmmLabels')
 
-# plt.show()
+plt.show()
 
 # Agglomerative Clustering
 aglc = AgglomerativeClustering(n_clusters = 2, linkage = 'single')
@@ -83,7 +83,7 @@ df['AggLabels'] = aglc.fit_predict(X)
 
 sns.scatterplot(x = 'X1', y = 'X2', data = df, hue = 'AggLabels')
 
-# plt.show()
+plt.show()
 
 dbs = DBSCAN(eps = 0.3)
 
